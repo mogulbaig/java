@@ -1,3 +1,29 @@
+JDK is Java software development environment that offers tools and libraries necessary for developing Java based application. 
+
+JVM, and JRE are core components of JDK. JDK has private JVM and few other resources for developing JVM application
+
+* JRE
+
+* Archiver
+
+* Compiler
+
+* Interpreter (loader)
+
+**How does JVM work**
+
+JVM calls the main function. Java applications are called WORA (write once read anywhere) a programmer can develop Java code on one system and expect to run on any other environment. 
+
+When we compile a .java file, a .class file gets created by the Java compiler. These class files go through various stages - 
+
+![jvm](https://media.geeksforgeeks.org/wp-content/uploads/jvm-3.jpg)
+
+**Just in Time Compiler**
+
+
+
+# Data Type
+
 Java is strictly pass by value.
 
 In pass by value, the caller and callee method operate on two difference variables which are copies of each other. Any changes on the one won't modify the other. While calling the method, the parameters are passed will be clone of the original parameters. Any modification done won't have any effect on the original parameters.
@@ -8,7 +34,7 @@ Primitives variables store the actual value, non-primitive variables store refer
 
 ### Immutable
 
-An object whose state remains constant after it has been created entirely. Once an object has been assigned to a variable, we can neither update the reference nor mutate the internal state. 
+An object whose state remains constant after it has been created entirely. Once an object has been assigned to a variable, we can neither update the reference nor mutate the internal state.
 
 ## Data Types
 
@@ -25,17 +51,17 @@ The variables will receive default values based on their declared types. For int
 
 ### Array
 
-An array is a reference type that can store collections of specific type. 
+An array is a reference type that can store collections of specific type.
 
 ### String
 
-String are thread-safe. String are mutable to improve cachine, security, synchronization and performance. It is the most widely used data structure and caching the literals and reusing them saves a lot of heap. 
+String are thread-safe. String are immutable to improve cachine, security, synchronization and performance. It is the most widely used data structure and caching the literals and reusing them saves a lot of heap.
 
-Interning is the process of storing only one copy of distinct string value. Two different variables are pointing to the same string object saving memory. 
+Interning is the process of storing only one copy of distinct string value. Two different variables are pointing to the same string object saving memory.
 
 **==, comparison**
 
-This way of string comparison only checks for referential equality of two string. 
+This way of string comparison only checks for referential equality of two string.
 
 ```java
 String string1 = "using comparison operator";
@@ -46,7 +72,7 @@ assertThat(string1 == string2).isTrue();
 assertThat(string1 == string3).isFalse();
 ```
 
-In the example above, the first assertion is true because the two variables point to the same *String* literal. On the other hand, the second assertion is false because *string1* is created with a literal and *string3* is created using the *new* operator – therefore they reference different objects.
+In the example above, the first assertion is true because the two variables point to the same *String* literal. On the other hand, the second assertion is false because *string1* is created with a literal and *string3* is created using the *new* operator – therefore they reference different objects.
 
 **equals()**
 
@@ -66,13 +92,13 @@ assertThat(string1.equals(null)).isFalse();
 assertThat(string1.equals(string3)).isFalse();
 ```
 
-In this example, *string1, string2,* and *string4* variables are equal because they have the same case and value irrespective of their address.
+In this example, *string1, string2,* and *string4* variables are equal because they have the same case and value irrespective of their address.
 
-For *string3* the method returns *false,* as it's case sensitive. Also, if any of the two strings is *null*, then the method returns *false.*
+For *string3* the method returns *false,* as it's case sensitive. Also, if any of the two strings is *null*, then the method returns *false.*
 
 **equalsIgnoreCase()**
 
-Ignores casing in characters while comparing *Strings*.
+Ignores casing in characters while comparing *Strings*.
 
 **compareTo()**
 

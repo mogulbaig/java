@@ -1,6 +1,6 @@
 ## Class
 
-Class is a blueprint of certain type containing state and behavior. Objects of a class is called instances. Every has has empty constructor as default. An empty constructor only initializes the fields with default values.
+Class is a blueprint of certain type containing state and behavior. Objects of a class is called instances. Every class has an empty constructor by default. An empty constructor only initializes the fields with default values.
 
 An object is a living instance of a class and they maintain the state and behavior during runtime. Class constructor doesn't initialize the field it merely declares
 
@@ -371,3 +371,143 @@ It's valid to make an overridden method to accept arguments of different types a
 - If a method in the base class returns a primitive, the overridden method should return the same primitive
 - If a method in the base class returns a certain type, the overridden method should return the same type or a subtype (a.k.a. *covariant* return type)
 - If a method in the base class throws an exception, the overridden method must throw the same exception or a subtype of the base class exception
+
+# Abstract
+
+Abstract class enables data encapsulation and polymorphism. It doesn't allow multiple inheritance.
+
+Java provides a mechanism to achieve abstraction, polumorphism, and inheritance. This can be achieved using abstract and interface keyword.
+
+Properties of abstraction using abstract keyword -
+
+- It is defined using the abstract keyword preceding the class keyword
+
+- Abstract class can be subclassed but cannot be instantiated
+
+- If a class has one abstract nature, then the entire class should be abstracted. This also means an abstract class can have concrete or abstract methods
+
+- Subclass that extend the abstract class must implement all the abstract methods or be an abstract class itself.
+
+```java
+public abstract class BoardGame {
+
+    //... field declarations, constructors
+
+    public abstract void play();
+
+    //... concrete methods
+}
+```
+
+```java
+public class Checkers extends BoardGame {
+
+    public void play() {
+        //... implementation
+    }
+}
+```
+
+When to use abstract classes -
+
+- Abstraction can be used to encapsulate multiple functionality into one place and can be reused across other places
+
+- Abstraction allows for lazy implementation, where the blueprint is defined and the implementation is done more concretely someplace else
+
+- Concrete classes have common functionality that can be used with protected access modifiers
+
+Properties of abstraction using interface keyword -
+
+- An interface is a blue print for a class. Interface cannot be instantiated using the new keyword but concrete class can implement these methods. Eg Map, List, Set
+
+```java
+interface Mogul {
+    void name();
+}
+```
+
+- Abstract class can have both implemented and unimplemented methods. Eg. AbstractList, AbstractSet
+
+# Interface
+
+Interfaces is used to implement polymorphism and multiple inheritance. They help add additional functionality to unrelated classes. For instance Comparable, Comparator, and Cloneable are interfaces that can be implemented by unrelated classes.
+
+### Default Methods
+
+Conceptually the main purpose of default methods in interfaces is backward compatibility.
+
+### Multiple Inheritance
+
+Java primarily supports single inheritance. Using interfaces we can implement multiple interfaces.
+
+```java
+public interface Transform {
+    void transform();
+}
+
+public interface Fly {
+    void fly();
+}
+
+public class Car implements Fly, Transform {
+
+    @Override
+    public void fly() {
+        System.out.println("I can Fly!!");
+    }
+
+    @Override
+    public void transform() {
+        System.out.println("I can Transform!!");
+    }
+}
+```
+
+In order to enable multiple inheritance through interfaces we have to remember a few rules.
+
+- Interface extending another interface
+
+- Abstract class implementing interfaces
+
+### Polymorphism
+
+Ability for an object to take different forms during runtime. It is achieved through overriding behavior of a specific object.
+
+```java
+public interface Shape {
+    String name();
+}
+```
+
+```
+public class Circle implements Shape {
+
+    @Override
+    public String name() {
+        return "Circle";
+    }
+}
+```
+
+```java
+public class Square implements Shape {
+
+    @Override
+    public String name() {
+        return "Square";
+    }
+}
+```
+
+```java
+List<Shape> shapes = new ArrayList<>();
+Shape circleShape = new Circle();
+Shape squareShape = new Square();
+
+shapes.add(circleShape);
+shapes.add(squareShape);
+
+for (Shape shape : shapes) {
+    System.out.println(shape.name());
+}
+```

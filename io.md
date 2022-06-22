@@ -24,7 +24,7 @@ FileReader reader =
 
 **Using a stream**
 
-BufferedReader* to take any kind of input stream as an underlying source. We can do it using *InputStreamReader* and wrapping it in the constructor:
+BufferedReader to take any kind of input stream as an underlying source. We can do it using *InputStreamReader* and wrapping it in the constructor:
 
 ```java
 BufferedReader reader = 
@@ -53,7 +53,7 @@ public void whenReadWithBufferedReader_thenCorrect()
   throws IOException {
      String expected_value = "Hello, world!";
      String file ="src/test/resources/fileTest.txt";
-     
+
      BufferedReader reader = new BufferedReader(new FileReader(file));
      String currentLine = reader.readLine();
      reader.close();
@@ -65,7 +65,3 @@ public void whenReadWithBufferedReader_thenCorrect()
 ### Writing Files
 
 We'll make use of *BufferedWriter*, *PrintWriter*, *FileOutputStream*, *DataOutputStream*, *RandomAccessFile*, *FileChannel*
-
-
-
-
