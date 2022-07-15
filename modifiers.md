@@ -1,16 +1,6 @@
-## Access Modifiers
-
 Access modifiers are used to encapsulate the state of the objects.
 
-Default access modifiers are package private, as all members are only visible within the same packages. Protected access modifiers are also package-private but also allows members to be visible to its subclasses.
-
-* Public
-
-* Private
-
-* Protected
-
-* Default
+Default access modifiers are package-private, as all members are only visible within the same packages. Protected access modifiers are also package-private but also members are visible to their subclasses as well.
 
 ## Non-Access Modifiers
 
@@ -28,13 +18,13 @@ Default access modifiers are package private, as all members are only visible wi
 
 ## Static
 
-Static keyword means that a particular member belongs to the type itself rather than the instance of that type. That is there is only one instance of the static member shared across all instances of the class. 
+Static keyword means that a particular member belongs to the type itself rather than the instance of that type. That is there is only one instance of the member shared across all instances of the class. 
+
+Static initializers are created before the class is created. 
 
 ### Fields
 
-When a field is declared as static, exactly a single copy of that field is created and shared among all instance of that class. Static fields are stored in the heap.
-
-Static fields can only be declared at a class level, and can be accessed without object creation.
+Static fields are stored in the heap. When a field is declared as static, a single copy of that field is created and shared among all instance of that class. Static fields can only be declared at a class level, and can be accessed without object creation.
 
 ```java
 public class Car {
@@ -55,23 +45,15 @@ public class Car {
 
 ### Methods
 
-Static methods belong to the class instead of the instance. We can call them without creating the object. 
+Static methods belong to the class instead of the instance. We can call them without creating the object. Static methods are resolved in compile time and since overriding is runtime process static methods cannot be overridden.
 
-* Used to create utility or helper classes
+Abstract methods cannot be static. Static methods can't use this or super.
 
-Static methods are resolved in compile time. Since method overriding is runtime process static methods cannot be overridden.
-
-* Abstract methods cannot be static. Static methods can't use this or super
-
-* Instance methods can directly access other instance methods and variables
-
-* Instance methods can directly access static methods and variables
-
-* Static methods can access all static variables and methods
-
-* Static methods can't access non-static variables and methods directly. They need to some object reference to do so. 
+Instance methods can directly access other instance and non-instance methods and variables. Static methods can access all static variables, methods and can't access non-static variables and methods directly (they require object reference to do so)
 
 ### Class
+
+A class can be made **static** only if it is a nested. We cannot declare a top-level class with a static modifier. Such types of classes are called Nested static classes. Nested static class doesn’t need a reference of Outer class. In this case, a static class cannot access non-static members of the Outer class.
 
 ## Final
 
@@ -79,9 +61,9 @@ Final keyword is used to limit the scope for variables, classes, and methods.
 
 ### Class
 
-Classes market with final keyword cannot be extended. One of the major immutable classes that have final marked are String class.
+Classes market with final keyword cannot be extended. One of the major immutable classes that have final marked are String class. Any attempt to extend a final class will result in compilation error.
 
-Any attempt to extend a final class will result in compilation error.
+Final class doesn't mean that objects are immutable. We just can't extend it.
 
 ```java
 public final class Cat {
@@ -91,8 +73,6 @@ public final class Cat {
     // standard getter and setter
 }
 ```
-
-Final keyword in class doesn't mean that objects are immutable. We just can't extend it.
 
 ### Methods
 
@@ -105,6 +85,8 @@ public class Dog {
     }
 }
 ```
+
+- Methods marked as final can be overloaded
 
 - Mark a method as final if we don't want to the caller to cause suprising results
 
@@ -181,7 +163,7 @@ private static final List foo = new ArrayList();
 
 ## Synchronized
 
-Race condition occurs when two or more thread attempt to update mutable shared data. We can avoid this by synchrinized thread access to the shared data allowing only one thread to execute at any given time. 
+Race condition occurs when two or more thread attempt to update shared data. We can avoid this by synchronized thread access to the shared data, allowing only one thread to execute at any given time. 
 
 Synchronized keyword can be used across - 
 

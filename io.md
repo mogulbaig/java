@@ -1,10 +1,8 @@
-File can be read using *BufferedReader*, *Scanner*, *StreamTokenizer*, *DataInputStream*, *SequenceInputStream,* and *FileChannel*.
+Scanner is a simple text scanner that can parse primitive types and string. Buffered Reader on the other hand reads text from character input stream and is more efficient
 
 ### BufferedReader
 
-Simplifies reading text from a character input stream. It buffers the character in order to enable efficient reading of text. It is efficiently used to read text from any kind of input source.
-
-It also minimizes IO operations by reading chunks of characters and store them in an internal buffer. While the buffer has data, the reader will read from it instead of directly from the underlying stream.
+It buffers the character in order to enable efficient reading of text. It can be used to read text from any kind of input source. It also minimizes IO operations by reading chunks of characters and store them in an internal buffer. While the buffer has data, the reader will read from it instead of directly from the underlying stream.
 
 **Extending Reader**
 
@@ -37,7 +35,7 @@ BufferedReader reader =
 
 * BR can change the size of the buffer, scanner doesn't 
 
-* BR has larger default buffer size
+* BR has larger default buffer size compared to scanner
 
 * 
 

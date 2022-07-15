@@ -1,3 +1,5 @@
+Data abstraction is the ability to view only the required characteristics of the object. Encapsulation is the ability to hide behavior under single unit typically a class. It is a protective shield that prevents the data from being accessed by the code outside this shield. Encapsulation is implemented using access modifiers, and abstraction is implemented using abstract and interface classes. 
+
 ## Class
 
 Class is a blueprint of certain type containing state and behavior. Objects of a class is called instances. Every class has an empty constructor by default. An empty constructor only initializes the fields with default values.
@@ -188,7 +190,7 @@ For the above code, *first.msg()* will output “Car*“* and *second.msg()* wil
 
 **Interface Inheritance**
 
-* Class can inherit multiple interfaces. 
+Class can inherit multiple interfaces. 
 
 ```java
 public interface Floatable {
@@ -287,9 +289,11 @@ Super is used to access the parent class. It can be used to call the parent cons
 
 **Overloading**
 
-Overloading is the ability to create multiple methods with the same name. This is achieved through a process called static binding which is the ability to associate method calls to the correct method (in the method body). In case of overloading binding is done in compile time hence it is also called as static binding. The compiler simply checks the method signature. Java allows method overloading in the following ways - 
+Overloading is the ability to create multiple methods with the same name. This is achieved through a process called static binding which is the ability to associate method calls to the correct method (in the method body). In case of overloading binding is done in compile time hence it is also called as static binding. The compiler simply checks the method signature. 
 
-Overloading allows us to implement methods having same name with different number of arguments.
+Java allows method overloading in the following ways - 
+
+* Different number of arguments
 
 ```java
 public class Multiplier {
@@ -304,7 +308,7 @@ public class Multiplier {
 }
 ```
 
-Overloading allows us to implement methods having same name with different argument types. 
+* Different argument types
 
 ```java
 public class Multiplier {
@@ -319,7 +323,7 @@ public class Multiplier {
 }
 ```
 
-It is not possible to have two methods implementation that differ only in their return types. Below code will result in compilation error!
+* Two methods that differ only in their return types is not possible
 
 ```java
 public int multiply(int a, int b) { 
@@ -333,7 +337,7 @@ public double multiply(int a, int b) {
 
 **Overriding**
 
-Overriding is the ability extend implementation in subclasses for methods defined in the parent class. Overriding is more a consequence of inheritance where overloading need to have inheritance. 
+Overriding is the ability extend implementation in subclasses for methods defined in the parent class. Overriding is more a consequence of inheritance where overloading need not have inheritance. 
 
 Since overriding can only be implemented using inheritance where there is a hierarchy of base and subtypes. The compiler cannot determine at compile time what method to call. This happens only at runtime and this called as dynamic binding. 
 
@@ -374,9 +378,7 @@ It's valid to make an overridden method to accept arguments of different types a
 
 # Abstract
 
-Abstract class enables data encapsulation and polymorphism. It doesn't allow multiple inheritance.
-
-Java provides a mechanism to achieve abstraction, polumorphism, and inheritance. This can be achieved using abstract and interface keyword.
+Java provides a mechanism to achieve abstraction, polumorphism, and inheritance. his can be achieved using abstract and interface keyword. Abstract class enables data encapsulation and polymorphism. It doesn't allow multiple inheritance.
 
 Properties of abstraction using abstract keyword -
 
@@ -384,7 +386,7 @@ Properties of abstraction using abstract keyword -
 
 - Abstract class can be subclassed but cannot be instantiated
 
-- If a class has one abstract nature, then the entire class should be abstracted. This also means an abstract class can have concrete or abstract methods
+- If a class has one abstract method, then the entire class should be abstracted. This also means an abstract class can have concrete or abstract methods
 
 - Subclass that extend the abstract class must implement all the abstract methods or be an abstract class itself.
 
@@ -430,7 +432,9 @@ interface Mogul {
 
 # Interface
 
-Interfaces is used to implement polymorphism and multiple inheritance. They help add additional functionality to unrelated classes. For instance Comparable, Comparator, and Cloneable are interfaces that can be implemented by unrelated classes.
+Interfaces is used to implement polymorphism and multiple inheritance. They help add additional functionality to unrelated classes. 
+
+For instance Comparable, Comparator, and Cloneable are interfaces that can be implemented by unrelated classes.
 
 ### Default Methods
 

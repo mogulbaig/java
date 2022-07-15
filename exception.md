@@ -1,4 +1,4 @@
-Exceptions are abnormal behaviors during the execution of the program. Exceptions are just objects with all of them extending from Throwable. 
+Exceptions are abnormal behaviors during the execution of the program. Exceptions are just objects with all of them extending from Throwable. Errors are unrecoverable conditions such as OOM, Memory leaks, etc. 
 
 ```markdown
               ---> Throwable <--- 
@@ -10,7 +10,6 @@ Exceptions are abnormal behaviors during the execution of the program. Exception
       |
 RuntimeException
   (unchecked)
-
 ```
 
 There are three main categories of exceptions - 
@@ -71,7 +70,7 @@ Simple way is to throw it.
 
 ```java
 public int getPlayerScore(String playerFile) throws FileNotFoundException {
- 
+
     Scanner contents = new Scanner(new File(playerFile));
     return Integer.parseInt(contents.nextLine());
 }
@@ -131,7 +130,6 @@ public int getPlayerScore(String playerFile) {
         }
     }
 }
-
 ```
 
 **try-with-resources**
@@ -155,7 +153,7 @@ Using multiple resources in:
 try (Scanner scanner = new Scanner(new File("testRead.txt"));
     PrintWriter writer = new PrintWriter(new File("testWrite.txt"))) {
     while (scanner.hasNext()) {
-	writer.print(scanner.nextLine());
+    writer.print(scanner.nextLine());
     }
 }
 ```
@@ -222,6 +220,8 @@ public List<Player> loadAllPlayers(String playersFile) {
 }
 ```
 
-## Inheritance
+## Exception Handling and Overriding
 
-Inheritance impacts the exceptions that subclasses can throw *fewer* checked exceptions than their superclass, but not *more*.
+- If SuperClass does not declare an exception, then the SubClass can only declare unchecked exceptions, but not the checked exceptions.
+- If SuperClass declares an exception, then the SubClass can only declare the same or child exceptions of the exception declared by the SuperClass and any new Runtime Exceptions, just not any new checked exceptions at the same level or higher.
+- If SuperClass declares an exception, then the SubClass can declare without exception.
